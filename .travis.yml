@@ -20,9 +20,6 @@ after_success:
   - docker build -t faizanmalik/multi-server ./server
   - docker build -t faizanmalik/multi-worker ./worker
   ## login into docker cli
-
-  # - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-  # - docker login -u faizanmalik -p $DOCKER_PASSWORD
   - docker login -u faizanmalik -p $(echo $DOCKER_PASSWORD)
   ## Upload these image to docker hub
   - docker push faizanmalik/multi-client
