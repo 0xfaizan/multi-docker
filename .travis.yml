@@ -26,3 +26,15 @@ after_success:
   - docker push faizanmalik/multi-nginx
   - docker push faizanmalik/multi-server
   - docker push faizanmalik/multi-worker
+
+on:
+  provider: elasticbeanstalk
+  region: 'ap-south-1'
+  app: 'multi-docker-app'
+  env: 'Multidockerapp-env'
+  bucket_name: 'elasticbeanstalk-ap-south-1-037346945350'
+  bucket_path: 'multi-docker-app'
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
